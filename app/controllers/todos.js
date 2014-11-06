@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.ArrayController.extend({
   actions: {
     createTodo: function () {
       // Get the todo title set by the "New Todo" text field
@@ -11,6 +11,8 @@ export default Ember.Controller.extend({
       if (!title.trim()) {
         return;
       }
+
+      console.log(this.store);
 
       // Create the new Todo model
       var todo = this.store.createRecord('todo', {
