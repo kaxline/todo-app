@@ -6,7 +6,11 @@ export default Ember.ObjectController.extend({
       this.set('isEditing', true);
     },
     doneEditing: function () {
-      var bufferedTitle = this.get('bufferedTitle').trim();
+      var bufferedTitle = this.get('bufferedTitle');
+      if (bufferedTitle) {
+        bufferedTitle.trim();
+      }
+
 
       if (Ember.isEmpty(bufferedTitle)) {
         // The `doneEditing` action gets sent twice when the user hits
